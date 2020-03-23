@@ -15,6 +15,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 
 import { HomeModule } from './home/home.module';
 import { LoginComponent } from './login/login.component';
+import { ApiService } from '../services/api.service';
 
 @NgModule({
   declarations: [
@@ -22,9 +23,7 @@ import { LoginComponent } from './login/login.component';
     SignupComponent,
     LandingComponent,
     ProfileComponent,
-    NavbarComponent,
-    FooterComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +33,7 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule,
     HomeModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

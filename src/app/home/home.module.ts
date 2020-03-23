@@ -8,6 +8,10 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
 
 import { SectionsModule } from '../sections/sections.module';
+import { NavbarComponent } from '../shared/navbar/navbar.component';
+import { FooterComponent } from '../shared/footer/footer.component';
+import { ApiService } from '../../services/api.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     imports: [
@@ -15,10 +19,17 @@ import { SectionsModule } from '../sections/sections.module';
         BrowserModule,
         FormsModule,
         RouterModule,
-        SectionsModule
+        SectionsModule,
+        HttpClientModule
     ],
-    declarations: [ HomeComponent ],
+    declarations: [ 
+        HomeComponent,
+        NavbarComponent,
+        FooterComponent,
+    ],
     exports:[ HomeComponent ],
-    providers: []
+    providers: [
+        ApiService
+    ]
 })
 export class HomeModule { }
