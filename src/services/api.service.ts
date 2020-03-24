@@ -11,4 +11,6 @@ export class ApiService {
     searchAll(keyword: string){
         return this.httpClient.get(ApiUrls.searchAll(keyword)).toPromise();
     }
+
+    
 }

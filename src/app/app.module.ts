@@ -16,6 +16,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { HomeModule } from './home/home.module';
 import { LoginComponent } from './login/login.component';
 import { ApiService } from '../services/api.service';
+import { ModalContainerComponent } from './modal-container/modal-container.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ApiService } from '../services/api.service';
     LandingComponent,
     ProfileComponent,
     LoginComponent,
+    ModalContainerComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +36,7 @@ import { ApiService } from '../services/api.service';
     HomeModule
   ],
   providers: [ApiService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ ModalContainerComponent ]
 })
 export class AppModule { }

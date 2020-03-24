@@ -13,11 +13,11 @@
     box-shadow: 3px 3px 14px -2px rgba(0,0,0,0.75);
     margin: 10px;
     padding:20px;
-    max-width: 300px !important;
+    max-width: 400px !important;
 }
 
 .search-container {
-    padding: 40px auto;
+    padding-top: 50px;
     max-width: 1300px !important;
 }
 
@@ -26,5 +26,17 @@
 }
 
 .content-row{
-    padding: 80px 0px;
+    padding: 10px 0px;
+}
+
+.bs-card {
+    border-radius: 15px;
+    -webkit-box-shadow: 3px 3px 14px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 14px -2px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 14px -2px rgba(0,0,0,0.75);
+    margin: 10px;
+    padding:10px;
+}
+.card-title {
+    border-bottom: 1px solid
 }
