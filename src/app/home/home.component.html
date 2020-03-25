@@ -60,7 +60,7 @@
     <section *ngIf="users_count !== 0">
       <div class="container search-container"><h1>Users</h1><hr>
         <div class="row content-row">  
-          <div (click)="openModal()" class="col-4 card" *ngFor="let user of users">
+          <div (click)="openModal(user)" class="col-4 card" *ngFor="let user of users">
             <div class="row">
               <div class="col-lg-4">
                 <img class="profile-img" [src]="user.user.profile_pic_url" />

@@ -70,8 +70,9 @@ export class HomeComponent implements OnInit {
         }).catch(err => console.log('error', err))
     }
 
-    openModal() {
+    openModal(user) {
         const modalRef = this.modalService.open(ModalContainerComponent);
+        modalRef.componentInstance.user = user;
     }
     
 }
