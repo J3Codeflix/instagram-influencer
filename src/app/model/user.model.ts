@@ -8,5 +8,10 @@ export interface User {
         follower_count: number,
         following_count: number,
         is_private: boolean,
+        post_count: number,
+        edges: [],
+        total_comment_count: number,
+        total_likes_count: number,
+        engagement_rate: number,
     }
 }

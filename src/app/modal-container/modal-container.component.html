@@ -6,18 +6,27 @@
     <h3> {{ user.user.username }} </h3>
     <br> <img [src]="user.user.profile_pic_url" alt="..." class="img-thumbnail">
     </div> 
-    <span> <p> {{ user.user.full_name }}</p></span>
-    <br>
-    <span> <p> {{ user.user.biography }}</p></span>
-    <br>
-    <div class="row">
-        <div class="col-sm">
-            Followers: {{ user.user.follower_count }}
-        </div>
-        <div class="col-sm">
-            Following: {{ user.user.following_count }}
-        </div>
+    <div class="card-body">
+        <span> <p> {{ user.user.full_name }}</p></span>
+        <br>
+        <span> <p> {{ user.user.biography }}</p></span>
+        <br>
     </div>
+    <div class="row p-10" >
+        <div class="col-sm">
+            Followers: {{ user.user.follower_count | number }}
+        </div>
+        <div class="col-sm">
+            Following: {{ user.user.following_count | number }}
+        </div>
+        
+    </div>
+    <br>
+    <div class="col-md">
+        Engagement Rate: {{ user.user.engagement_rate }}
+    </div>
+    <br>
+    <br>
     <br>
     <div class="card-footer">
     </div>

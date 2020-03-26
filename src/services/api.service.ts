@@ -15,6 +15,5 @@ export class ApiService {
     searchUsername(username: string) {
         return this.httpClient.get(ApiUrls.searchUsername(username)).toPromise();
     }
-
     
 }

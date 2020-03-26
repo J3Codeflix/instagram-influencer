@@ -58,7 +58,11 @@
       </div>
     </section>
     <section *ngIf="users_count !== 0">
-      <div class="container search-container"><h1>Users</h1><hr>
+      <div class="container search-container">
+        <center>
+          <h1>Users</h1>
+        </center>
+        <hr>
         <div class="row content-row">  
           <div (click)="openModal(user)" class="col-4 card" *ngFor="let user of users">
             <div class="row">
@@ -74,8 +78,52 @@
         </div>
       </div>
     </section>
-
-
+    <section *ngIf="places_count !== 0">
+      <div class="container search-container">
+        <center>
+          <h1>Places</h1>
+        </center>
+        <hr>
+        <div class="row content-row">  
+          <div  class="col-4 card" *ngFor="let p of places">
+            <div class="row">
+              <div class="col-sm-4">
+                <i class="ni ni-pin-3 px-50"></i>
+              </div>
+              <div class="col-lg-8">
+                <h6>{{ p.place.slug }}</h6>
+                <p>{{ p.place.location.name  }}</p>
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section *ngIf="hashTags_count !== 0">
+      <div class="container search-container">
+        <center>
+          <h1>Hashtags</h1>
+        </center>
+        <hr>
+        <div class="row content-row">  
+          <div  class="col-4 card" *ngFor="let h of hashTags">
+            <div class="row">
+              <div class="col-sm-4">
+                <img class="profile-img" [src]="h.hashtag.profile_pic_url" />
+              </div>
+              <div class="col-lg-8">
+                <h6>{{ h.hashtag.name }}</h6>
+                <p>{{ h.hashtag.search_result_subtitle  }}</p>
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </main>
+
+
 <app-footer></app-footer>

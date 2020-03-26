@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
-
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
 import { LandingComponent } from './landing/landing.component';
@@ -17,6 +17,8 @@ import { HomeModule } from './home/home.module';
 import { LoginComponent } from './login/login.component';
 import { ApiService } from '../services/api.service';
 import { ModalContainerComponent } from './modal-container/modal-container.component';
+import { TemplatesComponent } from './templates/templates.component';
+import { CreateTemplateComponent } from './create-template/create-template.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { ModalContainerComponent } from './modal-container/modal-container.compo
     ProfileComponent,
     LoginComponent,
     ModalContainerComponent,
+    TemplatesComponent,
+    CreateTemplateComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,9 @@ import { ModalContainerComponent } from './modal-container/modal-container.compo
     FormsModule,
     RouterModule,
     AppRoutingModule,
-    HomeModule
+    HomeModule,
+    FroalaEditorModule.forRoot(), 
+    FroalaViewModule.forRoot()
   ],
   providers: [ApiService],
   bootstrap: [AppComponent],
