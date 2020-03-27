@@ -12,6 +12,7 @@ import { NavbarComponent } from '../shared/navbar/navbar.component';
 import { FooterComponent } from '../shared/footer/footer.component';
 import { ApiService } from '../../services/api.service';
 import { HttpClientModule } from '@angular/common/http';
+import { CalculateService } from '../../services/calculate.service';
 
 @NgModule({
     imports: [
@@ -29,7 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     ],
     exports:[ HomeComponent ],
     providers: [
-        ApiService
+        ApiService,
+        CalculateService
     ]
 })
 export class HomeModule { }
