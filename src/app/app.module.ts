@@ -19,6 +19,8 @@ import { ApiService } from '../services/api.service';
 import { ModalContainerComponent } from './modal-container/modal-container.component';
 import { TemplatesComponent } from './templates/templates.component';
 import { CreateTemplateComponent } from './create-template/create-template.component';
+import { PlacesModalComponent } from './places-modal/places-modal.component';
+import { HashtagsModalComponent } from './hashtags-modal/hashtags-modal.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { CreateTemplateComponent } from './create-template/create-template.compo
     ModalContainerComponent,
     TemplatesComponent,
     CreateTemplateComponent,
+    PlacesModalComponent,
+    HashtagsModalComponent,
   ],
   imports: [
     BrowserModule,

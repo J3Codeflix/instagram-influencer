@@ -18,6 +18,7 @@ export class ModalContainerComponent implements OnInit {
 
   user: User;
   @Input() users:any;
+  
   constructor(
     private api: ApiService,
     public modalService: NgbModal

@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { NgbModal,ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { ModalContainerComponent } from '../modal-container/modal-container.component';
+import { PlacesModalComponent } from '../places-modal/places-modal.component';
+
 import { element } from 'protractor';
 @Component({
     selector: 'app-home',
@@ -66,6 +68,11 @@ export class HomeComponent implements OnInit {
     openModal(user) {
         const modalRef = this.modalService.open(ModalContainerComponent);
         modalRef.componentInstance.user = user;
+    }
+
+    openPlacesModal(places) {
+        const modalRef = this.modalService.open(PlacesModalComponent);
+        modalRef.componentInstance.user = places;
     }
     
 }
