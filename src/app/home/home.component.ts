@@ -5,6 +5,7 @@ import { ModalContainerComponent } from '../modal-container/modal-container.comp
 import { PlacesModalComponent } from '../places-modal/places-modal.component';
 
 import { element } from 'protractor';
+import { CalculateService } from '../../services/calculate.service';
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
@@ -28,7 +29,10 @@ export class HomeComponent implements OnInit {
     hashTags_count = 0;
     total_count = 0;
     keyword;
-    constructor(private api: ApiService, private modalService : NgbModal) { }
+    constructor(
+        private api: ApiService, 
+        private modalService : NgbModal,
+        private calculate: CalculateService) { }
 
     ngOnInit() {   
         console.log(this.place);
@@ -40,10 +44,13 @@ export class HomeComponent implements OnInit {
     }
 
     search() {
-        console.log("HomeComponent -> search -> this.keyword", this.keyword)
+      this.users = [];
+      this.places = [];
+      this.hashTags = [];
         this.api.searchAll(this.keyword).then((response: any) => {
             if(response.users){
                 this.users.push(...response.users);
+                this.getTotalEngagement();
                 this.users_count = this.users.length;   
             }
             
@@ -61,7 +68,6 @@ export class HomeComponent implements OnInit {
                 this.hashTags_count = this.hashTags.length;       
             }
             this.total_count = this.users_count + this.places_count + this.hashTags_count;
-            console.log("HomeComponent -> search -> response", response)
         }).catch(err => console.log('error', err))
     }
 
@@ -74,5 +80,10 @@ export class HomeComponent implements OnInit {
         const modalRef = this.modalService.open(PlacesModalComponent);
         modalRef.componentInstance.user = places;
     }
+    async getTotalEngagement() {
+        const totalEngagement = await this.calculate.calculateEngagement(this.users);
+        console.log("HomeComponent -> getTotalEngagement -> totalEngagement", totalEngagement)
+    }
+
     
 }
