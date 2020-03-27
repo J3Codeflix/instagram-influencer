@@ -1,0 +1,47 @@
+<div class="modal-header" >
+    <h4 class="modal-title" id="modal-basic-title">Create Template</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<form class="form-width">
+        <div class="form-group">
+          <label for="inputEmail4">Template Name</label>
+          <input type="email" class="form-control" id="templatename" placeholder="Template Name">
+        </div>
+        <div class="form-group">
+          <label for="inputPassword4">Subject</label>
+          <input type="password" class="form-control" id="subject" placeholder="Subject">
+        </div>
+      <div class="form-group">
+        <div [froalaEditor]>Hello, Froala!</div>
+      </div>
+      <div class="form-group px-3">
+          <div class="row">
+            <div class="custom-control custom-control-alternative custom-checkbox mb-3">
+                <input class="custom-control-input" id="customCheck1" type="checkbox">
+                <label class="custom-control-label" for="customCheck1">Track Url Click Rate</label>
+            </div>
+            <div class="custom-control custom-control-alternative custom-checkbox mb-3">
+                <input class="custom-control-input" id="customCheck2" type="checkbox">
+                <label class="custom-control-label" for="customCheck2">Track Open Rate</label>
+            </div>  
+            <div class="custom-control custom-control-alternative custom-checkbox mb-3">
+                <input class="custom-control-input" id="customCheck3" type="checkbox">
+                <label class="custom-control-label" for="customCheck3">Add Unsubscribe Link</label>
+            </div>  
+            <div class="custom-control custom-control-alternative custom-checkbox mb-3">
+                <input class="custom-control-input" id="customCheck4" type="checkbox">
+                <label class="custom-control-label" for="customCheck4">Track Contact Form Reply</label>
+            </div> 
+          </div>      
+      </div>
+      <div class="row">
+        <div class="col-6 col-md-8">  <input type="email" class="form-control" id="testemail" placeholder="Test Email"> </div>
+        <div class="col-4 col-sm-2">    <button type="submit" class="btn btn-lg btn-success" placement="top" ngbTooltip="For test emails, all custom fields are automatically filled with dummy values.">Send</button></div>   
+      </div>
+ 
+      <br>
+      <br>
+      <button type="submit" class="btn btn-primary">Sign in</button>
+  </form>  

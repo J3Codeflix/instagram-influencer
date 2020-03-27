@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { NgbModal,ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { ModalContainerComponent } from '../modal-container/modal-container.component';
+import { element } from 'protractor';
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
@@ -18,6 +19,7 @@ export class HomeComponent implements OnInit {
     closeResult = '';
     users = [];
     places = [];
+    place=[];
     hashTags = [];
     users_count = 0;
     places_count = 0;
@@ -26,27 +28,14 @@ export class HomeComponent implements OnInit {
     keyword;
     constructor(private api: ApiService, private modalService : NgbModal) { }
 
-    ngOnInit() {    
+    ngOnInit() {   
+        console.log(this.place);
     }
+    
 
     open(content) {
-        this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-          this.closeResult = `Closed with: ${result}`;
-        }, (reason) => {
-          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-        });
-      }
-
-      
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
+      this.modalService.open(content);
     }
-  }
 
     search() {
       this.users = [];
@@ -62,6 +51,10 @@ export class HomeComponent implements OnInit {
             if(response.places) {
                 this.places.push(...response.places)
                 this.places_count = this.places.length;
+                this.places.forEach( element => {
+                    this.place = element.place
+                })
+
             }
             
             if(response.hashtags) {

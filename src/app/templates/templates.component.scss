@@ -1,9 +1,10 @@
+.navbar-color {
+    background-color: #173e53;
+}
+
 .input-alignment {
     margin: 100px auto;
     margin-bottom:0px;
-}
-.button-alignment {
-    margin: 0px auto;
 }
 
 .card {
@@ -41,6 +42,14 @@
     border-bottom: 1px solid
 }
 
-.px-50{
-    font-size: 50px;
+.p-30{
+    padding-top: 40px;
+}
+
+.form-width {
+    width: 100%;
+    padding: 30px;
+}
+.pt-30 {
+    padding-top: 30px;
 }
