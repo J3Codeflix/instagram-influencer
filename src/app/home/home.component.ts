@@ -49,6 +49,9 @@ export class HomeComponent implements OnInit {
   }
 
     search() {
+      this.users = [];
+      this.places = [];
+      this.hashTags = [];
         console.log("HomeComponent -> search -> this.keyword", this.keyword)
         this.api.searchAll(this.keyword).then((response: any) => {
             if(response.users){
