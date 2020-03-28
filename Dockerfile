@@ -1,19 +1,14 @@
-FROM node:10
+# Stage 0, "build-stage", based on Node.js, to build and compile the frontend\
+FROM node:10 as build-stage
+WORKDIR /app
+COPY package*.json /app/
+RUN npm install --verbose
+COPY ./ /app/
+RUN npm run start
 
-# Create app directory
-WORKDIR /usr/src/app
+# Stage 1, based on Nginx, to have only the compiled app, ready for production with Nginx
+FROM nginx:alpine
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
-COPY package*.json ./
-
-RUN npm install
-# If you are building your code for production
-# RUN npm install --only=production
-
-# Bundle app source
-COPY . .
-
-EXPOSE 3000
-CMD [ "npm", "run", "start" ]
+COPY --from=build-stage /app/dist/argon-design-system-angular/ /usr/share/nginx/html
+# Copy the default nginx.conf provided by tiangolo/node-frontend
+COPY --from=build-stage /app/nginx.conf /etc/nginx/nginx.conf
