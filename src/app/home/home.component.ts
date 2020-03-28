@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { NgbModal,ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { ModalContainerComponent } from '../modal-container/modal-container.component';
+import { PlacesModalComponent } from '../places-modal/places-modal.component';
+
 import { element } from 'protractor';
 import { CalculateService } from '../../services/calculate.service';
 @Component({
@@ -74,6 +76,10 @@ export class HomeComponent implements OnInit {
         modalRef.componentInstance.user = user;
     }
 
+    openPlacesModal(places) {
+        const modalRef = this.modalService.open(PlacesModalComponent);
+        modalRef.componentInstance.user = places;
+    }
     async getTotalEngagement() {
         const totalEngagement = await this.calculate.calculateEngagement(this.users);
         console.log("HomeComponent -> getTotalEngagement -> totalEngagement", totalEngagement)
